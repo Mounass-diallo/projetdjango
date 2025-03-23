@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Liste des Articles{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="nav">Liste des Articles</h1>
+    <ul>
+        {% for article in object_list %}
+            <li>
+                <a href="{% url 'article-detail' article.pk %}">{{ article.titre }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{#    <a class="create-article" href="{% url 'article-create' %}">Créer un nouvel article</a>#}
+</div>
+{% endblock %}

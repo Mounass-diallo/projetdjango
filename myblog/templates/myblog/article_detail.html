@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ object.titre }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ object.titre }}</h1>
+    <p>{{ object.contenu }}</p>
+    {% if object.image %}
+        <img src="{{ object.image.url }}" alt="{{ object.titre }}" class="article-image">
+    {% endif %}
+    <p>Publié le : {{ object.date_publication }}</p>
+    <p>Auteur : {{ object.auteur }}</p>
+{#    <a href="{% url 'article-update' object.pk %}">Modifier</a>#}
+{#    <a href="{% url 'article-delete' object.pk %}">Supprimer</a>#}
+    <a href="{% url 'article-list' %}">Retour à la liste</a>
+</div>
+{% endblock %}
